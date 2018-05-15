@@ -72,12 +72,33 @@ function handleSearchButtonClick(){
    };
    renderTable()
 };
-
-function handleResetButtonClick(){
-    $dateInput.value = "";
-    $cityInput.value = "";
-    $stateInput.value = "";
-    $countryInput.value = "";
-    $shapeInput.value = "";
-}
+$resetBtn.addEventListener("click", filterInput)
 //handleSearchButtonClick()
+function filterInput() {
+    my_data = dataSet
+    
+    if ($dateInput.value) {
+        my_data = my_data.filter(filteredtime);      
+    };
+    if ($cityInput.value) {
+        my_data = my_data.filter(filteredcity);      
+    };
+    if ($stateInput.value) {
+        my_data = my_data.filter(filteredstate);      
+    };
+    if ($countryInput.value) {
+        my_data = my_data.filter(filteredcountry);      
+    };
+    if ($shapeInput.value) {
+        my_data = my_data.filter(filteredshape);      
+    };
+  
+    function handleResetButtonClick(){
+        $dateInput.value = "";
+        $cityInput.value = "";
+        $stateInput.value = "";
+        $countryInput.value = "";
+        $shapeInput.value = "";
+        renderTable();
+    };
+};
